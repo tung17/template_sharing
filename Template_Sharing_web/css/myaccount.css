@@ -1,0 +1,18 @@
+ #myaccount
+ {
+ 	padding: 30px;
+ 	margin-top :20px;
+ 	margin-bottom: 20px;
+ } 
+
+ #myaccount li.active a:focus  {background-color: #F3D6E4 ;}
+ 
+ .error{
+ 	color: red;
+ }
+input.error {
+    color:black;
+}
+#none{
+    display: none;
+}

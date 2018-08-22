@@ -1,0 +1,77 @@
+#footer
+{
+    background-color: black;
+    
+
+    
+}
+#footer ul 
+{
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+#footer h5 
+{
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#footer h2 
+{
+    font-size: 50px;
+    text-align: center;
+
+   
+}
+#footer h2 img
+{
+	height: 75px;
+	width: auto;
+}
+#footer a {
+    color:  white;
+    text-decoration: none;
+}
+#footer a:hover,
+#footer a:focus {
+    
+    color: #FF6600;
+}
+
+#footer .facebook:hover {
+    color: #0077e2;
+}
+
+#footer .twitter:hover {
+    color: #00aced;
+}
+
+#footer .instagram:hover {
+    color: #ef1a1a;
+}
+#footer .social-networks {
+    text-align: center;
+    padding-top: 20px;
+    }
+
+
+#footer .social-networks a {
+    font-size: 32px;
+    color: white;
+    padding: 10px;
+    transition: 0.2s;
+}
+#notify input
+{
+	text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    #footer {
+        text-align: center;
+    }
+}

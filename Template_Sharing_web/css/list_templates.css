@@ -1,0 +1,378 @@
+.full-size {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+#head-decoration {
+	height: 150px;
+	background: url("../images/templates/waves.jpg") no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+#head-decoration h2 {
+	font-size: 600%;
+	margin: 0 75px;
+	line-height: 150px;
+	color: #7f7f7f;
+}
+
+#head-decoration h2 span {
+	font-weight: bold;
+}
+
+#content {
+    background-image: url("../images/common/temp_bg.png");
+}
+
+#filter-side h3:first-child {
+	font-weight: bold;
+}
+
+#filter-side div:nth-child(2) {
+	font-size: 125%;
+	padding: 5px;
+}
+
+#path-line {
+	background-color: #ededed;
+}
+
+#category-area > div {
+	width: 100%;
+	height: 250px;
+	text-align: center;
+	line-height: 250px;
+	font-weight: bold;
+}
+
+#category-area > div.business {
+	background: url("../images/templates/business.jpg") no-repeat;
+	background-size: cover;
+}
+
+#category-area > div.education {
+	background: url("../images/templates/education.jpg") no-repeat;
+	background-size: cover;
+}
+
+#category-area > div.entertainment {
+	background: url("../images/templates/entertainment.png") no-repeat;
+	background-size: cover;
+}
+
+#category-area > div a {
+	text-decoration: none;
+}
+
+#category-area > div div {
+	height: 250px;
+}
+
+#category-area > div div:hover {
+	background-color: rgba(0, 0, 0, 0.4);
+	-webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
+}
+
+#category-area span {
+	font-size: 200%;
+	font-weight: bold;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+#category-area > div div:hover > span {
+	color: white;
+	background-color: transparent;
+	-webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+}
+
+.breadcrumb {
+	padding: 0;
+	height: 36px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	margin-bottom: -5px;
+	background-color: #ededed;
+	overflow: hidden;
+	border-radius: initial;
+}
+
+.breadcrumb a {
+	text-decoration: none;
+	outline: none;
+	display: block;
+	float: left;
+	line-height: 36px;
+	font-size: 150%;
+	/*need more margin on the left of links to accomodate the numbers*/
+	padding: 0 10px 0 60px;
+	position: relative;
+	background-color: #ededed;
+}
+/*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
+.breadcrumb a:first-child {
+	padding-left: 46px;
+}
+.breadcrumb a:first-child:before {
+	left: 14px;
+}
+.breadcrumb a:last-child {
+	padding-right: 20px;
+}
+
+/*hover/active styles*/
+.breadcrumb a.active, .breadcrumb a:hover{
+	background: rgb(127, 127, 127);
+	color: rgb(255, 255, 255);
+}
+.breadcrumb a.active:after, .breadcrumb a:hover:after {
+	background: rgb(127, 127, 127);
+}
+
+/*adding the arrows for the breadcrumbs using rotated pseudo elements*/
+.breadcrumb a:after {
+	content: '';
+	position: absolute;
+	top: 0; 
+	right: -18px; /*half of square's length*/
+	/*same dimension as the line-height of .breadcrumb a */
+	width: 36px; 
+	height: 36px;
+	/*same dimension as the line-height of .breadcrumb a */
+	transform: scale(0.707) rotate(45deg);
+	/*we need to prevent the arrows from getting buried under the next link*/
+	z-index: 1;
+	/*background same as links but the gradient will be rotated to compensate with the transform applied*/
+	background-color: #ededed;
+	/*stylish arrow design using box shadow*/
+	box-shadow: 
+		2px -2px 0 2px rgba(63, 63, 63, 0.4), 
+		3px -3px 0 2px rgba(255, 255, 255, 0.1);
+	/*
+		5px - for rounded arrows and 
+		50px - to prevent hover glitches on the border created using shadows*/
+	border-radius: 0 5px 0 50px;
+}
+/*we dont need an arrow after the last link*/
+.breadcrumb a:last-child:after {
+	content: none;
+}
+/*we will use the :before element to show numbers*/
+.breadcrumb a:before {
+	/*some styles now*/
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	top: 0;
+	left: 30px;
+	font-weight: bold;
+}
+
+.page-scroller {
+	padding: 20px 0;
+	background-color: #f5f5f5;
+}
+
+.page-scroller div {
+	display: table;
+	margin: 0 auto;
+}
+
+.page-scroller div ul li span.irrelevant {
+	border: 1px solid transparent;
+	color: #000;
+	background-color: transparent;
+	padding-left: 50px;
+}
+
+.page-scroller div ul li span.irrelevant:hover {
+	border: 1px solid transparent;
+	background-color: transparent;
+	color: #000;
+}
+
+.page-scroller span {
+	cursor: pointer;
+}
+
+.page-scroller span.irrelevant {
+	cursor: initial;
+}
+
+.pagination {
+    display: inline;
+}
+
+.list-templates li {
+	display: flex;
+}
+
+.list-templates li > div {
+	display: inline;
+	max-width: 400px;
+	padding: 24px;
+	margin: 0 auto;
+}
+
+.list-templates li > div:hover {
+	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+	transform: translateY(-2px);
+}
+
+.list-templates ul {
+	list-style-type: none;
+}
+
+.list-templates img {
+	max-width: 95%;
+    transition-duration: .5s;
+}
+
+.list-templates li > div div {
+	height: 50px;
+	text-overflow: ellipsis;
+}
+
+.list-templates div div:nth-child(2) {
+	padding: 0;
+}
+
+.list-templates div input {
+	padding: 0;
+	width: 32px;
+	display: block;
+	margin: auto;
+	max-width: 95%;
+    transition-duration: .5s;
+}
+
+.list-templates div input:hover {
+	transform: translateY(15px);
+}
+
+#list-templates-area ul {
+	display: inline;
+	padding: initial;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.clear-both {
+	clear: both;
+}
+
+@media only screen and (min-width: 320px) {	
+	#head-decoration h2 {
+		display: none;
+	}
+	
+	.template-img {
+		width: inherit;
+	}
+	
+	.page-scroller div ul:first-child li:first-child,li:last-child {
+		display: none;
+	}
+	
+	.page-scroller div ul:first-child li:nth-child(2) span {
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+	
+	.page-scroller div ul:first-child li:nth-last-child(2) span {
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+	
+	#path-line {
+		display: none;
+	}
+
+	.list-templates li {
+		display: flex;
+	}
+
+	.list-templates div {
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#head-decoration h2 {
+		display: initial;
+		font-size: 450%;
+		margin: 0 75px;
+		line-height: 150px;
+		color: #7f7f7f;
+	}
+	
+	.template-img {
+		width: initial;
+	}
+	
+	.page-scroller div ul:first-child li:first-child,li:last-child {
+		display: inline;
+	}
+	
+	.page-scroller div ul:first-child li:nth-child(2) span {
+		border-top-left-radius: initial;
+		border-bottom-left-radius: initial;
+	}
+	
+	.page-scroller div ul:first-child li:nth-last-child(2) span {
+		border-top-right-radius: initial;
+		border-bottom-right-radius: initial;
+	}
+	
+	#path-line {
+		display: block;
+	}
+
+	#category-area span {
+		font-size: 400%;
+	}
+	
+	.list-templates li {
+		display: initial;
+	}
+	
+	#list-templates-area li {
+		display: flex;
+	}
+	
+	.breadcrumb a {
+		font-size: 100%;
+		padding: 0 10px 0 40px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	#category-area span {
+		font-size: 750%;
+	}
+	
+	.breadcrumb a {
+		font-size: 150%;
+		padding: 0 10px 0 60px;
+	}
+	
+	#list-templates-area li {
+		display: initial;
+	}
+}

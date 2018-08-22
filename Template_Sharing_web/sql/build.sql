@@ -1,0 +1,82 @@
+CREATE DATABASE template_sharing;
+USE template_sharing;
+
+CREATE TABLE template_category (
+	CategoryID INT NOT NULL AUTO_INCREMENT,
+	Name VARCHAR(50) NOT NULL,
+	PRIMARY KEY (CategoryID)
+);
+
+CREATE TABLE template_kind (
+	KindID INT NOT NULL AUTO_INCREMENT,
+	Name VARCHAR(50) NOT NULL,
+	PRIMARY KEY (KindID)
+);
+
+CREATE TABLE template (
+	TemplateID INT NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+	DownloadLink VARCHAR(255) NOT NULL,
+	DownloadCounter INT NOT NULL,
+	CategoryID INT NOT NULL,
+	KindID INT NOT NULL,
+	PRIMARY KEY (TemplateID),
+	FOREIGN KEY (CategoryID) REFERENCES template_category(CategoryID),
+	FOREIGN KEY (KindID) REFERENCES template_kind(KindID)
+);
+
+CREATE TABLE image_link (
+	ImageID INT NOT NULL AUTO_INCREMENT,
+	Link VARCHAR(255) NOT NULL,
+	TemplateID INT,
+	PRIMARY KEY (ImageID),
+	FOREIGN KEY (TemplateID) REFERENCES template(TemplateID)
+);
+
+CREATE TABLE template_description (
+	DescriptionID INT NOT NULL AUTO_INCREMENT,
+	Content VARCHAR(255) NOT NULL,
+	TemplateID INT,
+	PRIMARY KEY (DescriptionID),
+	FOREIGN KEY (TemplateID) REFERENCES template(TemplateID)
+);
+
+CREATE TABLE member (
+	MemberID INT NOT NULL AUTO_INCREMENT,
+	JoinDate DATE NOT NULL,
+	IsAdmin TINYINT(1) NOT NULL,
+	FirstName VARCHAR(50) NOT NULL,
+	LastName VARCHAR(50) NOT NULL,
+	Email VARCHAR(100) NOT NULL,
+	Username VARCHAR(50) NOT NULL,
+	Password VARCHAR(200) NOT NULL,
+	PRIMARY KEY (MemberID)
+);
+
+CREATE TABLE user_comment (
+	CommentID INT NOT NULL AUTO_INCREMENT,
+	PostDate  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Content VARCHAR(200) COLLATE utf8_vietnamese_ci NOT NULL,
+	TemplateID INT NOT NULL,
+	MemberID INT NOT NULL,
+	PRIMARY KEY (CommentID),
+	FOREIGN KEY (TemplateID) REFERENCES template(TemplateID),
+	FOREIGN KEY (MemberID) REFERENCES member(MemberID)
+);
+
+CREATE TABLE like_comment (
+	LikeID INT NOT NULL AUTO_INCREMENT,
+	MemberID INT NOT NULL,
+	CommentID INT NOT NULL,
+	PRIMARY KEY (LikeID),
+	FOREIGN KEY (MemberID) REFERENCES member(MemberID),
+	FOREIGN KEY (CommentID) REFERENCES user_comment(CommentID)
+);
+
+CREATE TABLE user_session (
+	SessionID INT NOT NULL AUTO_INCREMENT,
+	ExpiredDate DATETIME NOT NULL,
+	MemberID INT NOT NULL,
+	PRIMARY KEY (SessionID),
+	FOREIGN KEY (MemberID) REFERENCES member(MemberID)	
+);
